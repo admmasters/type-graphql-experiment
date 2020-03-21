@@ -12,7 +12,14 @@ type Mutation {
   addRecipe(recipe: RecipeInput!): Recipe!
 }
 
+"""Object representing pokemon"""
+type Pokemon {
+  id: Float!
+  name: String!
+}
+
 type Query {
+  pokemon(name: String!): Pokemon!
   recipe(title: String!): Recipe
 
   """Get all the recipes from around the world """
