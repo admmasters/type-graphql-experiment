@@ -16,10 +16,30 @@ type Mutation {
 type Pokemon {
   id: Float!
   name: String!
+  base_experience: Float!
+  height: Float!
+  is_default: Boolean!
+  location_area_encounters: String!
+  order: Float!
+  weight: Float!
+  types: [PokemonType!]!
+}
+
+"""Object representing pokemon resource"""
+type PokemonResource {
+  name: String!
+  url: String!
+}
+
+"""Object representing pokemon type"""
+type PokemonType {
+  slot: Float!
+  type: PokemonResource!
 }
 
 type Query {
-  pokemon(name: String!): Pokemon!
+  pokemonById(id: Float!): Pokemon!
+  pokemonByName(name: String!): Pokemon!
   recipe(title: String!): Recipe
 
   """Get all the recipes from around the world """
